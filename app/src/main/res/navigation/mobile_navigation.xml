@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.pawelwlazlo.bmi.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_bmi">
+        <action
+            android:id="@+id/action_navigation_home_to_bmiResultFragment"
+            app:destination="@id/bmiResultFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_recipe_category"
+        android:name="com.pawelwlazlo.bmi.ui.recipes.RecipesFragment"
+        android:label="Meal recipes"
+        tools:layout="@layout/fragment_recipes">
+        <action
+            android:id="@+id/action_navigation_recipe_category_to_navigation_recipe_category_details"
+            app:destination="@id/navigation_recipe_category_details" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_recipe_main"
+        android:name="com.pawelwlazlo.bmi.ui.recipes.MainFragment"
+        android:label="Meal recipes"
+        tools:layout="@layout/fragment_main">
+
+        <action
+            android:id="@+id/action_navigation_recipe_main_to_navigation_recipe_category_details"
+            app:destination="@id/navigation_recipe_category_details" />
+        <action
+            android:id="@+id/action_navigation_recipe_main_to_navigation_recipe_details"
+            app:destination="@id/navigation_recipe_details" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_recipe_category_details"
+        android:name="com.pawelwlazlo.bmi.ui.recipes.MealsByCategoryFragment"
+        android:label="Meal recipes"
+        tools:layout="@layout/fragment_meals_by_category">
+
+        <argument
+            android:name="categoryName"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_navigation_recipe_category_details_to_navigation_recipe_details"
+            app:destination="@id/navigation_recipe_details" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_recipe_details"
+        android:name="com.pawelwlazlo.bmi.ui.recipes.MealRecipesFragment"
+        android:label="Meal recipes"
+        tools:layout="@layout/fragment_meal_recipes">
+
+        <argument
+            android:name="mealId"
+            app:argType="string" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_trainers"
+        android:name="com.pawelwlazlo.bmi.ui.trainers.TrainersFragment"
+        android:label="@string/title_trainers"
+        tools:layout="@layout/fragment_trainers">
+        <action
+            android:id="@+id/action_navigation_trainers_to_trainersDetails"
+            app:destination="@id/trainersDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/trainersDetails"
+        android:name="com.pawelwlazlo.bmi.ui.trainers.TrainersDetails"
+        android:label="Trainer details"
+        tools:layout="@layout/fragment_trainers_details">
+        <argument
+            android:name="trainer"
+            app:argType="com.pawelwlazlo.bmi.data.trainer.Trainer" />
+    </fragment>
+    <fragment
+        android:id="@+id/bmiResultFragment"
+        android:name="com.pawelwlazlo.bmi.ui.home.BmiResultFragment"
+        android:label="BMI result"
+        tools:layout="@layout/fragment_bmi_result">
+        <argument
+            android:name="bmiItem"
+            app:argType="com.pawelwlazlo.bmi.data.bmi.BmiItem" />
+    </fragment>
+    <fragment
+        android:id="@+id/favouriteRecipesFragment"
+        android:name="com.pawelwlazlo.bmi.ui.recipes.FavouriteRecipesFragment"
+        android:label="fragment_favourite_recipes"
+        tools:layout="@layout/fragment_favourite_recipes" >
+        <action
+            android:id="@+id/action_favouriteRecipesFragment_to_navigation_recipe_details"
+            app:destination="@id/navigation_recipe_details" />
+    </fragment>
+
+</navigation>

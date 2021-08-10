@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BMI</string>
+    <string name="title_home">BMI</string>
+    <string name="title_recipes">Recipes</string>
+    <string name="title_trainers">Trainers</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
